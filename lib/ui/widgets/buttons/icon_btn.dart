@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:hrms/utils/color.dart';
+
+class DefaultIconButton extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final VoidCallback? onPressed;
+  const DefaultIconButton({
+      super.key,
+      required this.label,
+      required this.icon,
+      required this.onPressed
+    }
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryColor,
+        foregroundColor: AppColors.backgroundColor,
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      icon: Icon(icon, size: 20),
+      onPressed: onPressed,
+      label: Text(
+        label,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
