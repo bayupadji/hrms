@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hrms/data/repositories/onboarding_repository.dart';
-import 'package:hrms/domain/providers/onboarding_provider.dart';
+import 'package:hrms/providers/onboarding/onboarding_provider.dart';
 import 'package:hrms/ui/widgets/buttons/default_btn.dart';
 import 'package:hrms/ui/widgets/indicator/dots_indicator.dart';
 import 'package:hrms/ui/widgets/onboarding/content_onboarding.dart';
@@ -65,6 +65,8 @@ class OnboardingPage extends StatelessWidget {
                   DotsIndicator(),
                   DefaultButton(
                     label: 'Masuk',
+                    bgColor: AppColors.primarySwatch.shade500,
+                    fgColor: AppColors.backgroundColor,
                     onPressed: () {
                       onBoardingProvider.onMove(context);
                     }

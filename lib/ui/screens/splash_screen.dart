@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/domain/providers/splash_provider.dart';
+import 'package:hrms/providers/splashscreen/splash_provider.dart';
 import 'package:hrms/utils/color.dart';
 import 'package:provider/provider.dart';
 

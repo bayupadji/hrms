@@ -5,11 +5,15 @@ class DefaultIconButton extends StatelessWidget {
   final String label;
   final IconData icon;
   final VoidCallback? onPressed;
+    final Color bgColor;
+  final Color fgColor;
   const DefaultIconButton({
       super.key,
       required this.label,
       required this.icon,
-      required this.onPressed
+      required this.onPressed,
+      required this.bgColor,
+      required this.fgColor
     }
   );
 
@@ -17,12 +21,13 @@ class DefaultIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primaryColor,
-        foregroundColor: AppColors.backgroundColor,
+        backgroundColor: bgColor,
+        foregroundColor: fgColor,
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
+        elevation: 0,
       ),
       icon: Icon(icon, size: 20),
       onPressed: onPressed,
