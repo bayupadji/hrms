@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:hrms/providers/forms/input_provider.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/domain/providers/forms/input_provider.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class InputFields extends StatelessWidget {
   final String label;
@@ -39,42 +39,36 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk mendapatkan controller sesuai tipe input
   TextEditingController _getController(InputProvider inputProvider) {
     return isPasswordField
         ? inputProvider.passwordController
         : inputProvider.textController;
   }
 
-  // Fungsi untuk mendapatkan focus node sesuai tipe input
   FocusNode _getFocusNode(InputProvider inputProvider) {
     return isPasswordField
         ? inputProvider.passwordFocusNode
         : inputProvider.textFocusNode;
   }
 
-  // Fungsi untuk mendapatkan status error sesuai tipe input
   bool _getHasError(InputProvider inputProvider) {
     return isPasswordField
         ? inputProvider.hasPasswordError
         : inputProvider.hasTextError;
   }
 
-  // Fungsi untuk mendapatkan pesan error sesuai tipe input
   String? _getErrorMessage(InputProvider inputProvider) {
     return isPasswordField
         ? inputProvider.passwordErrorMessage
         : inputProvider.textErrorMessage;
   }
 
-  // Fungsi untuk mendapatkan status fokus sesuai tipe input
   bool _getIsFocused(InputProvider inputProvider) {
     return isPasswordField
         ? inputProvider.isPasswordFocused
         : inputProvider.isTextFocused;
   }
 
-  // Fungsi untuk membangun label field
   Widget _buildLabel() {
     return Text(
       label,
@@ -84,7 +78,6 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun TextFormField dengan logika password dan error
   Widget _buildTextFormField(
     InputProvider inputProvider,
     TextEditingController controller,
@@ -108,12 +101,10 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk menentukan apakah teks harus disembunyikan (password field)
   bool _shouldObscureText(InputProvider inputProvider) {
     return isPasswordField && !inputProvider.isPasswordVisible;
   }
 
-  // Fungsi untuk membangun InputDecoration dengan logika password dan error
   InputDecoration _buildInputDecoration(
     InputProvider inputProvider,
     bool hasError,
@@ -133,7 +124,6 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun border input field
   OutlineInputBorder _buildBorder(bool isFocused, bool hasError) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
@@ -145,7 +135,6 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun border ketika input field tidak aktif
   OutlineInputBorder _buildEnabledBorder(bool hasError) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
@@ -155,7 +144,6 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun border ketika input field sedang aktif
   OutlineInputBorder _buildFocusedBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
@@ -165,7 +153,6 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk membangun icon toggle visibility untuk password field
   Widget? _buildPasswordToggleIcon(InputProvider inputProvider) {
     return IconButton(
       icon: Icon(
@@ -177,17 +164,15 @@ class InputFields extends StatelessWidget {
     );
   }
 
-  // Fungsi untuk menangani field submit
   void _handleFieldSubmitted(InputProvider inputProvider) {
     isPasswordField
         ? inputProvider.validatePasswordInput()
-        : inputProvider.validateTextInput();
+        : inputProvider.validateTextInput(); // Change to validateEmailInput
   }
 
-  // Fungsi untuk menangani perubahan teks pada field
   void _handleFieldChanged(InputProvider inputProvider, String value) {
     isPasswordField
         ? inputProvider.setPassword(value)
-        : inputProvider.setText(value);
+        : inputProvider.setText(value); // Change to setEmail
   }
 }

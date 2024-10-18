@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hrms/domain/providers/auth/auth_provider.dart';
+import 'package:hrms/domain/providers/forms/input_provider.dart';
 import 'package:hrms/ui/widgets/buttons/default_btn.dart';
 import 'package:hrms/ui/widgets/buttons/icon_btn.dart';
 import 'package:hrms/ui/widgets/text_forms/default_textfields.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/utils/constans/color.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+    final inputProvider = Provider.of<InputProvider>(context);
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -35,7 +41,18 @@ class LoginScreen extends StatelessWidget {
               width: 183,
               height: 183,
             ),
-            FormsApp()
+            FormsApp(
+              onLoginPressed: () async {
+                await authProvider.login(
+                    inputProvider.textController.text,
+                    inputProvider.passwordController.text);
+                if (authProvider.errorMessage != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(authProvider.errorMessage!))
+                  );
+                }
+              },
+            )
           ],
         ),
       ),
@@ -44,7 +61,11 @@ class LoginScreen extends StatelessWidget {
 }
 
 class FormsApp extends StatelessWidget {
-  const FormsApp({super.key});
+  final VoidCallback onLoginPressed;
+
+  const FormsApp(
+      {super.key,
+      required this.onLoginPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +78,9 @@ class FormsApp extends StatelessWidget {
             label: 'Email',
             isPasswordField: false,
           ),
-          SizedBox(height: 16,),
+          SizedBox(
+            height: 16,
+          ),
           InputFields(
             label: 'Password',
             isPasswordField: true,
@@ -87,20 +110,17 @@ class FormsApp extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: DefaultButton(
-              label: 'Masuk',
-              onPressed: () {},
-              bgColor: AppColors.primaryColor,
-              fgColor: AppColors.backgroundColor
-            ),
+                label: 'Masuk',
+                onPressed: onLoginPressed,
+                bgColor: AppColors.primaryColor,
+                fgColor: AppColors.backgroundColor),
           ),
           SizedBox(
             height: 16,
           ),
           Text(
             'App v1.0',
-            style: TextStyle(
-              color: AppColors.greyColor
-            ),
+            style: TextStyle(color: AppColors.greyColor),
           ),
         ],
       ),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/data/repositories/onboarding_repository.dart';
-import 'package:hrms/providers/onboarding/onboarding_provider.dart';
+import 'package:hrms/data/repositories/onboarding/onboarding_repository.dart';
+import 'package:hrms/domain/providers/onboarding/onboarding_provider.dart';
 import 'package:hrms/ui/widgets/buttons/default_btn.dart';
 import 'package:hrms/ui/widgets/indicator/dots_indicator.dart';
 import 'package:hrms/ui/widgets/onboarding/content_onboarding.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/utils/constans/color.dart';
 import 'package:provider/provider.dart';
 
 class OnboardingPage extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:hrms/data/models/onboarding_model.dart';
+import 'package:hrms/data/models/onboarding/onboarding_model.dart';
 
 final List<OnboardingModel> onboardingPages = [
   OnboardingModel(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class DefaultIconButton extends StatelessWidget {
   final String label;

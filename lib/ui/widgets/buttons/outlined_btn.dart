@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class DefaultOutlinedButton extends StatelessWidget {
   final String label;

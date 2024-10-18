@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/data/models/onboarding_model.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/data/models/onboarding/onboarding_model.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class OnboardingContent extends StatelessWidget {
   final OnboardingModel onboardingData;

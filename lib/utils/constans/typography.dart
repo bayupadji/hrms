@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class AppTextStyles {
   // Define a custom TextTheme using Google Fonts

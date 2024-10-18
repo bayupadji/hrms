@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/data/repositories/onboarding_repository.dart';
+import 'package:hrms/data/repositories/onboarding/onboarding_repository.dart';
 import 'package:provider/provider.dart';
-import 'package:hrms/providers/onboarding/onboarding_provider.dart';
-import 'package:hrms/utils/color.dart';
+import 'package:hrms/domain/providers/onboarding/onboarding_provider.dart';
+import 'package:hrms/utils/constans/color.dart';
 
 class DotsIndicator extends StatelessWidget {
   const DotsIndicator({super.key});

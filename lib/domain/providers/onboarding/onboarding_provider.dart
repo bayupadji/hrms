@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hrms/data/repositories/onboarding_repository.dart';
-import 'package:hrms/providers/onboarding/onboarding_state.dart';
+import 'package:hrms/data/repositories/onboarding/onboarding_repository.dart';
+import 'package:hrms/domain/providers/onboarding/onboarding_state.dart';
 import 'package:hrms/ui/screens/login_screen.dart';
 
 class OnboardingProvider with ChangeNotifier {
